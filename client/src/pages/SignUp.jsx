@@ -5,7 +5,6 @@ import { useAuth } from "../store/auth";
 import styles from "../styles/signup.module.css";
 import Navbar from "../components/common/Navbar/main";
 
-const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -32,7 +31,7 @@ const SignUp = () => {
 
     try {
       const response = await fetch(
-        `${VITE_API_URL}/api/v1/users/register_user`,
+        `${import.meta.env.VITE_API_URL}/api/v1/users/register_user`,
         {
           method: "POST",
           headers: {
