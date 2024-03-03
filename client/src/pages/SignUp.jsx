@@ -5,7 +5,6 @@ import { useAuth } from "../store/auth";
 import styles from "../styles/signup.module.css";
 import Navbar from "../components/common/Navbar/main";
 
-
 const SignUp = () => {
   const navigate = useNavigate();
   const { storeTokenInLS } = useAuth();

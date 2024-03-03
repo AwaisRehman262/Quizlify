@@ -1,7 +1,5 @@
 import { useState, createContext, useContext, useEffect } from "react";
 
-// const VITE_API_URL = import.meta.env.VITE_API_URL;
-
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -23,12 +21,15 @@ export const AuthProvider = ({ children }) => {
 
   const userAuthentication = async () => {
     try {
-      const response = await fetch(`${VITE_API_URL}/api/v1/auth/`, {
-        method: "GET",
-        headers: {
-          Authorization: token,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/v1/auth/`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         setUser(data);
